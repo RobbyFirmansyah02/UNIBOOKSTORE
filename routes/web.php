@@ -54,3 +54,4 @@ Route::get('/kategori/destroy/{id}', [KategoriController::class, 'destroy'])->na
 // Route::get('/buku', [BukuController::class, 'index'])->name('buku');
 
 Route::resource('buku', BukuController::class);
+Route::resource('kategori', BukuController::class);

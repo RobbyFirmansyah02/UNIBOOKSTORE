@@ -33,15 +33,7 @@ class KategoriController extends Controller
         //Menggunakan Query Builder
         // menampilkan dalam bentuk object
         // $data = DB::table('kategori')->simplePaginate(5);
-        $cari = $request->get('search');
-
-        $data = DB::table('kategori')
-            ->where('nama_kategori','LIKE',"%$cari%")
-            ->paginate(5);
-        // bikin angkanya sesuai
-        $no = 5 * ($data->currentPage() - 1) ;
-        echo $data->currentPage();
-        return view('kategori.index', compact('data', 'no', 'cari'));
+     
     }
 
     /**

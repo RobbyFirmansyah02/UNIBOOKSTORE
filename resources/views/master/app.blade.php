@@ -1,127 +1,111 @@
 @extends('template1')
 @section('title')
-<div class="page-heading">
-    <p class="mb-1">Selamat Datang</p>
-    <h3>Aplikasi ...</h3>
+{{-- <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Data Kategori</h3>
+                    <a href="{{ route('create') }}">
+<button class="btn btn-success mt-2">
+    <i class="fa fa-plus-circle"></i>Tambah Data
+</button>
+</a>
 </div>
-@endsection
-@section('dashboard')
-    <div class="row">
-        <div class="col-6 col-lg-3 col-md-6">
-            <div class="card">
-                <div class="card-body px-4 py-4-5">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon purple mb-2">
-                                <i class="iconly-boldShow"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Profile Views</h6>
-                            <h6 class="font-extrabold mb-0">112.000</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-lg-3 col-md-6">
-            <div class="card">
-                <div class="card-body px-4 py-4-5">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon blue mb-2">
-                                <i class="iconly-boldProfile"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Followers</h6>
-                            <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-lg-3 col-md-6">
-            <div class="card">
-                <div class="card-body px-4 py-4-5">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon green mb-2">
-                                <i class="iconly-boldAdd-User"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Following</h6>
-                            <h6 class="font-extrabold mb-0">80.000</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-lg-3 col-md-6">
-            <div class="card">
-                <div class="card-body px-4 py-4-5">
-                    <div class="row">
-                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon red mb-2">
-                                <i class="iconly-boldBookmark"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                            <h6 class="text-muted font-semibold">Saved Post</h6>
-                            <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+</div>
+</div>
+</div> --}}
+
+{{-- @if(session('status'))
+        <div class="alert alert-success alert-dismissible show fade">
+            <i class="bi bi-check-circle me-1"></i>{{ session('status') }}
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></ button>
     </div>
-@endsection
-@section('tabel')
+    @endif --}}
+    @endsection
+
+    @section('nav')
+    <nav class="mt-3" aria-label="breadcrumb">
+        <ol aria-label="breadcrumb" class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('index') }}"><i class="fa fa-home"></i>Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Buku</li>
+        </ol>
+    </nav>
+    @endsection
+
+    @section('tabel')
     <div class="row">
         <div class="col-12 col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Data .. </h4>
+                    <div class="row">
+                        <div class="col-12 col-md-12 order-md-1 order-last">
+                            <h3>Daftar Buku</h3>
+                            <a href="{{ route('buku.create') }}">
+
+                            </a>
+                            <div class="float-end">
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-success">
+                                        <i class="fa fa-search d-inline"></i>
+                                        <p class="m-0 d-inline">Cari</p>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover table-lg">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Rate</th>
-                                    <th>Skill</th>
+                                    <th>No</th>
+                                    <th>Nama Buku</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
                                     <td class="col-auto">
-                                        <p class="mb-0">1</p>
+                                        <p class="mb-0"></p>
                                     </td>
                                     <td class="col-auto">
-                                        <p class=" mb-0">Michael Right</p>
+                                        <p class="mb-0">Si kancil</p>
                                     </td>
                                     <td class="col-auto">
-                                        <p class=" mb-0">$15/hr</p>
+                                        <p class=" mb-0"></p>
                                     </td>
                                     <td class="col-auto">
-                                        <p class=" mb-0">UI/UX</p>
+                                        <p class=" mb-0"></p>
+                                    </td>
+                                    <td class="col-auto">
+                                        <p class=" mb-0"></p>
+                                    </td>
+                                    <td class="col-auto">
+
+                                        <p class=" mb-0"></p>
                                     </td>
                                     <td class="d-flex justify-content-end gap-2">
-                                        <button class="btn btn-primary">
-                                            <i class="bi bi-info-circle"></i>
-                                        </button>
-                                        <button class="btn btn-warning">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                        <button class="btn btn-danger">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
+                                        <a href="" class="text-white">
+                                            <button class="btn btn-primary">
+                                                <i class="bi bi-info-circle"></i>
+                                            </button>
+                                        </a>
+                                        <a href="" class="text-white">
+
+                                        </a>
+                                        <a href="" class="text-white">
+
+                                        </a>
                                     </td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -129,4 +113,4 @@
             </div>
         </div>
     </div>
-@endsection
+    @endsection
